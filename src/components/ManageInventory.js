@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import "./ManageInventory.css";
 import axios from "axios";
+import qs from "qs";
 
 const ManageInventory = () => {
   const [item, setItem] = useState({});
@@ -51,16 +52,25 @@ const ManageInventory = () => {
     }
   };
 
+  /* const config = {
+    headers: {
+      "content-type": "application/x-www-form-urlencoded"
+    }
+  };*/
+
   useEffect(() => {
     if (canAddItem) {
       const addItem = async () => {
-        const result = await axios.post(
-          "http://localhost:9999/Manager/add?name=" +
-            item.articleName +
-            "&quantity=" +
-            item.quantity
-        );
-        console.log(result);
+        const result = await axios({
+          method: "post",
+          headers: { "content-type": "application/x-www-form-urlencoded" },
+          url: "http://localhost:9999/Manager/add",
+          data: qs.stringify({
+            name: item.articleName,
+            quantity: item.quantity
+          })
+        });
+        console.log("POST Request result:", result);
       };
       addItem();
       console.log("An item has been added.");
@@ -71,17 +81,18 @@ const ManageInventory = () => {
   useEffect(() => {
     if (canAddNewItem) {
       const addNewItem = async () => {
-        const result = await axios.post(
-          "http://localhost:9999/Manager/addNew?name=" +
-            item.articleName +
-            "&price=" +
-            item.articlePrice +
-            "&Description=" +
-            item.description +
-            "&quantity=" +
-            item.quantity
-        );
-        console.log(result);
+        const result = await axios({
+          method: "post",
+          headers: { "content-type": "application/x-www-form-urlencoded" },
+          url: "http://localhost:9999/Manager/addNew",
+          data: qs.stringify({
+            name: item.articleName,
+            price: item.articlePrice,
+            description: item.description,
+            quantity: item.quantity
+          })
+        });
+        console.log("POST Request result:", result);
       };
       addNewItem();
       console.log("A new item has been added.");
