@@ -54,7 +54,7 @@ const ManageInventory = () => {
   useEffect(() => {
     if (canAddItem) {
       const addItem = async () => {
-        const result = await axios.get(
+        const result = await axios.post(
           "http://localhost:9999/Manager/add?name=" +
             item.articleName +
             "&quantity=" +
@@ -71,7 +71,7 @@ const ManageInventory = () => {
   useEffect(() => {
     if (canAddNewItem) {
       const addNewItem = async () => {
-        const result = await axios.get(
+        const result = await axios.post(
           "http://localhost:9999/Manager/addNew?name=" +
             item.articleName +
             "&price=" +
@@ -92,7 +92,7 @@ const ManageInventory = () => {
   useEffect(() => {
     if (canRemoveItem) {
       const removeItem = async () => {
-        const result = await axios.get(
+        const result = await axios.post(
           "http://localhost:9999/Manager/Remove?articleName=" +
             item.articleName +
             "&quantity=" +
