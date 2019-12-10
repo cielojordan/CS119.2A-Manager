@@ -1,0 +1,57 @@
+Colors {
+  --darkOrange: "#ffb265";
+  --lightOrange: "#ffce8b";
+  --lightBlue: "#bfedf7";
+  --darkBlue: "#8ccde3";
+  --lighGray: "#ebebeb";
+  --darkGray: "#bbbbbb";
+}
+
+.Manager {
+  text-align: center;
+  color: #ffa565;
+  font-size: 50px;
+}
+
+.Manager-logo {
+  margin-block: left;
+}
+.Manager-header {
+  background-color: #ffd5b7;
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.Inventory {
+  background-color: #ffd99f;
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(6px + 2vmin);
+  color: white;
+}
+
+/*
+@media (prefers-reduced-motion: no-preference) {
+  .Manager-logo {
+    animation: Manager-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes Manager-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Manager-link {
+  color: #61dafb;
+}
+*/
